@@ -10,28 +10,89 @@
 <body>
 
   <div id="app">
-    <div class="line-grey">
-    </div>
-    <div class="application">
-      <div class="row">
-        <div class="col-4 bg-grey">
-          <div class="image-title">
-            <div class="col-6">
-              <div class="d-flex">
-                <img src="./img/avatar_1.jpg" alt="" class="avatar-image">Sofia
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="d-flex flex-end">
-                <i class="fa-solid fa-message"></i>
-                <i class="fa-solid fa-message"></i>
-                <i class="fa-solid fa-message"></i>
-              </div>
-            </div>
+    <div class="application container">
+      <div class="sidebar">
+
+        <div class="headbar">
+          <div class="cont-avatar">
+            <img src="./img/avatar_1.jpg" alt="">
           </div>
-          <div class="receive-notifications"></div>
+          <div class="cont-user">
+            <h3>Sofia</h3>
+          </div>
+          <ul class="menu-icon">
+            <li class="menu__item"><i class="fa-solid fa-magnifying-glass"></i></li>
+            <li class="menu__item"><i class="fa-solid fa-message"></i></li>
+            <li class="menu__item"><i class="fa-solid fa-ellipsis-vertical"></i></li>
+          </ul>
         </div>
-        <div class="col-8"></div>
+
+        <div class="notifications">
+          <div class="cont-icon">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+          <div class="cont-icon-text">
+            <p class="icon-title">Ricevi notifiche messaggio</p>
+            <p class="icon-subtitle">Attiva notifiche desktop</p>
+          </div>
+        </div>
+
+        <div class="searchbar">
+          <div class="cont-input">
+            <i class="fa-solid fa-magnifying-glass icon-search"></i>
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
+        </div>
+
+        <ul class="menu-contacts">
+          <li class="contacts__item" v-for="(contact, i) in contacts" :key="i" :class = "{
+            'active': i === currentIndex
+          }">
+            <div class="cont-avatar">
+              <img :src="contact.avatar" alt="">
+            </div>
+            <div class="cont-user">
+              <h3>{{contact.name}}</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="time">
+              <p>12:00</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="main-content">
+
+        <div class="headbar">
+          <div class="cont-avatar">
+            <img src="./img/avatar_1.jpg" alt="">
+          </div>
+          <div class="cont-user">
+            <h3>{{contacts[currentIndex].name}}</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, quae.</p>
+          </div>
+
+          <ul class="menu-icon">
+            <li class="menu__item"><i class="fa-solid fa-magnifying-glass"></i></li>
+            <li class="menu__item"><i class="fa-solid fa-message"></i></li>
+            <li class="menu__item"><i class="fa-solid fa-ellipsis-vertical"></i></li>
+          </ul>
+        </div>
+
+        <ul class="chat">
+          <li class="message sent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
+          <li class="message sent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
+          <li class="message received">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
+        </ul>
+
+        <div class="footer">
+          <i class="fa-regular fa-face-smile"></i>
+          <input class="chat-input"  type="text" placeholder="scrivi messaggio">
+          <i class="fa-solid fa-microphone"></i>
+        </div>
+
       </div>
     </div>
   </div>

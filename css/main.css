@@ -1,5 +1,4 @@
 *{
-  background-color: rgb(213, 219, 216);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,67 +8,198 @@ img{
   max-width: 100%;
 }
 
-.line-grey{
-  background-color: rgb(0, 150, 136);
-  height: 200px;
-  position: relative;
+ul, ol, li{
+  list-style: none;
 }
 
 #app{
-  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #009688 0px,
+    #009688 200px,
+    #dddbd1 200px,
+    #d2dbdc 100%
+  );
+  padding: 100px 0;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .application{
   background-color: white;
-  width: 1200px;
-  height: 1000px;
-  margin: 0 auto;
+  height: 100%;
+  display: flex;
+}
+
+.sidebar{
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.main-content{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat{
+  flex-grow: 1;
+  background-image: url('../img/mine.jpg');
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/*HEADBAR*/
+.headbar{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgb(213, 219, 216);
+}
+
+.cont-avatar > img{
+  width: 70px;
+  border-radius: 50%;
+}
+
+.menu-icon{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+.menu__item{
+  color: grey;
+  font-size: 18px;
+}
+
+/*Blocco Notifiche*/
+.notifications{
+  background-color: rgb(142, 218, 242);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.cont-icon{
+  display: flex;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-icon > i{
+  font-size: 30px;
+  color: rgb(142, 218, 242);;
+}
+
+.icon-title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.icon-subtitle{
+  color: grey;
+  text-decoration: underline;
+}
+
+/*Blocco SearchBar*/
+
+.searchbar{
+  padding: 10px;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-grow: 1;
+}
+
+.cont-input{
+  width: 100%;
+  position: relative;
+}
+
+.cont-input > input {
+  height: 30px;
+  width: 100%;
+  border-radius: 6px;
+  padding-left: 40px;
+}
+
+.icon-search{
   position: absolute;
   top: 50%;
-  right: 10%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
-.row{
+/*Blocco Contatti*/
+.menu-contacts{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 10px;
 }
 
-.col-4{
-  flex-basis: calc((100% / 12) * 4);
-}
-.col-8{
-  flex-basis: calc((100% / 12) * 8);
-}
-
-.col-6{
-  flex-basis: calc((100% / 12) * 6);
-}
-
-.bg-grey{
-  background-color: rgb(234, 234, 234);
-}
-/* BLOCCO LISTE */
-/* BLOCCO IMMAGINE PROPRIETARIO*/
-.image-title{
-  
+.contacts__item{
   display: flex;
-  align-items: center;
-}
-
-.d-flex{
-  display: flex;
-  align-items: center;
-}
-
-.flex-end{
-  justify-content: flex-end;
   gap: 10px;
 }
 
-.avatar-image{
-  width: 50px;
-  border-radius: 50%;
-  margin: 10px;
+.time{
+  margin-left: auto;
 }
 
-/*BLOCCO RICEVI NOTIFICHE*/
+.active{
+  background-color: rgb(213, 219, 216);;
+}
+
+/*BLOCCO CONTENT*/
+
+.message{
+  border-radius: 16px;
+  background-color: white;
+  padding: 10px;
+  max-width: 50%;
+}
+
+.sent{
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+
+.received{
+  background-color: white;
+  align-self: flex-start;
+}
+
+/*BLOCCO FOOTER CHAT INPUT*/
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(213, 219, 216);
+  padding: 10px;
+  gap: 10px;
+}
+
+.footer > i{
+  font-size: 22px;
+}
+
+.chat-input{
+  flex-grow: 1;
+  border-radius: 6px;
+  padding: 10px 10px;
+}
