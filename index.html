@@ -86,9 +86,10 @@
         </div>
 
         <ul class="chat">
-          <li class="message sent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
-          <li class="message sent">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
-          <li class="message received">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, sequi?</li>
+          <li class="message sent" v-for="(mes, i) in contacts[currentIndex].messages" :class="{
+            'sent': mes.status === 'sent',
+            'received': mes.status === 'received'
+          }">{{mes.message}}</li>
         </ul>
 
         <div class="footer">
