@@ -45,9 +45,13 @@
         </div>
 
         <ul class="menu-contacts">
-          <li class="contacts__item" v-for="(contact, i) in contacts" :key="i" :class = "{
-            'active': i === currentIndex
-          }">
+          <li class="contacts__item" 
+            v-for="(contact, i) in contacts" 
+            :key="i" 
+            :class = "{
+              'active': i === currentIndex
+            }"
+            @click="currentContact(i)">
             <div class="cont-avatar">
               <img :src="contact.avatar" alt="">
             </div>
@@ -67,7 +71,7 @@
 
         <div class="headbar">
           <div class="cont-avatar">
-            <img src="./img/avatar_1.jpg" alt="">
+            <img :src="contacts[currentIndex].avatar" alt="">
           </div>
           <div class="cont-user">
             <h3>{{contacts[currentIndex].name}}</h3>

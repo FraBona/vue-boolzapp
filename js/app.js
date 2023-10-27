@@ -169,6 +169,11 @@ createApp({
         ]
     }
   },
+  methods: {
+    currentContact(index){
+      this.currentIndex = index;
+    }
+  },
   mounted() {
     console.log('ciao');
   }
