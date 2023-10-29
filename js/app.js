@@ -5,6 +5,7 @@ createApp({
     return{
       newMessage: '',
       currentIndex : 0,
+      time: true,
       contacts: [
         {
           name: 'Michele',
@@ -181,6 +182,17 @@ createApp({
         status: 'sent', 
       });
       this.newMessage = '';
+
+      if(this.time){
+        this.time = setInterval(() => {
+          this.contacts[this.currentIndex].messages.push({
+            date: '10/01/2020 16:00:00',
+            message: 'ok',
+            status: 'received',
+          });
+          clearInterval(this.time);
+       }, 1000)
+      }
     }
   },
   mounted() {
