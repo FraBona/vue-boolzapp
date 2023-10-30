@@ -40,16 +40,16 @@
         <div class="searchbar">
           <div class="cont-input">
             <i class="fa-solid fa-magnifying-glass icon-search"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchWord" @keyup="searchContact()">
           </div>
         </div>
 
         <ul class="menu-contacts">
-          <li class="contacts__item" 
-            v-for="(contact, i) in contacts" 
+          <li class="contacts__item"
+            v-for="(contact, i) in contactsFilterd" 
             :key="i" 
             :class = "{
-              'active': i === currentIndex
+              'active': i === currentIndex,
             }"
             @click="currentContact(i)">
             <div class="cont-avatar">
